@@ -1,0 +1,56 @@
+@font-face {
+  font-family: "FrutigerLTArabic";
+  src: url("./fonts/FrutigerLTArabic_55_Roman.ttf") format("TrueType");
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@font-face {
+  font-family: "FrutigerLTArabicLight";
+  src: url("./fonts/FrutigerLTArabic_45_Light.ttf") format("TrueType");
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@font-face {
+  font-family: "FrutigerLTArabicBold";
+  src: url("./fonts/FrutigerLTArabic_65_Bold.ttf") format("TrueType");
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+$regularFont: "FrutigerLTArabic", sans-serif;
+$boldFont: "FrutigerLTArabicBold", sans-serif;
+$lightFont: "FrutigerLTArabicLight", sans-serif;
+
+.regularFont {
+  font-family: $regularFont, sans-serif;
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.boldFont {
+  font-family: $boldFont, sans-serif;
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.lightFont {
+  font-family: $lightFont, sans-serif;
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@import "/assets/themes/scss/theme";

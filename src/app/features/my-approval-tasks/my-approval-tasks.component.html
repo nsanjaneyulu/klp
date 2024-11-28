@@ -1,0 +1,148 @@
+<div class="grid">
+  <div class="col">
+    <div
+      class="flex justify-content-between esa-custom-flex align-items-center"
+    >
+      <p class="boldFont">Showing {{ totalRecords }} results:</p>
+      <button
+        pButton
+        pRipple
+        class="esa-button-cancel custom-button text-base"
+        type="button"
+        [outlined]="true"
+        label="Export to Excel"
+        (click)="exporttoExcel()"
+      >
+        <i class="pi pi-download mr-1 downloadColor"></i>
+      </button>
+    </div>
+  </div>
+</div>
+<p-panel header="My Approval Tasks" class="custom-table-pannel mt-5">
+  <p-table
+    class="custom-table"
+    [columns]="columns"
+    [value]="mytracker"
+    [scrollable]="true"
+    scrollHeight="60vh"
+    stickyHeader="true"
+    [responsive]="true"
+    [resizableColumns]="true"
+    [styleClass]="'w-full'"
+    [lazy]="true"
+    [paginator]="true"
+    (onLazyLoad)="getMyTracker($event)"
+    (onFilter)="onfilter($event)"
+    (onPageChange)="handlePagination($event)"
+    [rows]="pageSize"
+    [totalRecords]="totalRecords"
+    [rowsPerPageOptions]="rowsPerPageOptions"
+    [showCurrentPageReport]="true"
+    [showPageLinks]="false"
+    [showFirstLastIcon]="false"
+    currentPageReportTemplate="{first} - {last} of {totalRecords}"
+  >
+  <ng-template pTemplate="header" let-columns>
+    <tr class="ui-table-scrollable-header">
+      <th
+        [id]="col.field"
+        *ngFor="let col of columns"
+        id="referenceNo"
+        [pSortableColumn]="col.field"
+        [ngStyle]="{ 'min-width': '12rem' }"
+      >
+        {{ col.header }} <p-sortIcon [field]="col.field" />
+      </th>
+    </tr>
+    <tr>
+      <th id="filterRefNo">
+        <p-columnFilter
+          type="text"
+          field="referenceNo"
+          placeholder="Search"
+          ariaLabel="Filter Name"
+        />
+      </th>
+      <th id="requester">
+        <p-columnFilter
+          type="text"
+          field="requester"
+          placeholder="Search "
+          ariaLabel="Filter Name"
+        />
+      </th>
+      <th id="createdOn">
+        <p-columnFilter
+          type="text"
+          field="createdOn"
+          placeholder="Search"
+          ariaLabel="Filter Name"
+        />
+      </th>
+      <th id="modifiedOn">
+        <p-columnFilter
+          type="text"
+          field="modifiedOn"
+          placeholder="Search"
+          ariaLabel="Filter Name"
+        />
+      </th>
+      <th id="status">
+        <p-columnFilter
+          type="text"
+          field="status"
+          placeholder="Search "
+          ariaLabel="Filter Name"
+        />
+      </th>
+      <th id="actionUser">
+        <p-columnFilter
+          type="text"
+          field="actionUser"
+          placeholder="Search"
+          ariaLabel="Filter Name"
+        />
+      </th>
+    </tr>
+  </ng-template>
+    <ng-template pTemplate="body" let-item let-index="rowIndex">
+      <tr>
+        <td [id]="'refId' + item.id">
+          <p
+            class="cursor-pointer m-0" style="text-decoration: underline; color: #3274A3;"
+            role="button"
+            [routerLink]="['/my-approval-tasks/edit-details', item.id]"
+          >
+            {{ item.referenceNo | uppercase }}
+          </p>
+        </td>
+        <td [id]="'requester' + index">
+          {{ item.requester }}
+        </td>
+
+        <td [id]="'createdOn' + index">
+          {{ item.createdOn | date : "dd-MM-yyyy hh:mm a" }}
+        </td>
+        <td [id]="'modifiedOn' + index">
+          {{ item.modifiedOn | date : "dd-MM-yyyy hh:mm a" }}
+        </td>
+        <td [id]="'status' + index">{{ item.status }}</td>
+        <td [id]="'email' + index">
+          <p
+            class="m-0"
+            *ngFor="let email of handleEmailSplit(item.actionUser)"
+          >
+            {{ email }}
+          </p>
+        </td>
+      </tr>
+    </ng-template>
+
+    <ng-template pTemplate="emptymessage">
+      <tr>
+        <td colspan="5">No Record found.</td>
+      </tr>
+    </ng-template>
+  </p-table>
+</p-panel>
+<!-- temp -->

@@ -1,0 +1,81 @@
+<div
+  class="layout-left-container shadow-7 h-screen"
+  [ngStyle]= "isExpanded ? {'max-width': '17rem'  }:{'max-width': '4rem' }"
+>
+  <div class="sidebar flex flex-column h-full">
+    <div class="sidebar-header col-12">
+      <div class="grid m-0 h-full">
+        <div
+          class="col-12 flex justify-content-center align-items-center h-8rem"
+        >
+          <p-image
+            *ngIf="isExpanded"
+            src="assets/images/img_logo_white.png"
+            alt="Image"
+            width="224"
+          ></p-image>
+          <p-image *ngIf="!isExpanded" alt="Image" width="45" src="assets/images/img_logo_nav.png"></p-image>
+        </div>
+        <hr class="border-1 border-white w-11" [style.height]="'fit-content'" />
+        <div
+          class="sidebar-pin w-min relative z-5"
+          [style.top]="isExpanded ? '-18%' : '-18%'"
+          [style.left]="isExpanded ? '93%' : '60%'"
+        >
+          <i
+            class="pi border-circle shadow-6 w-3rem h-3rem text-xl flex align-items-center justify-content-center"
+            [ngClass]="{
+              'pi-chevron-left': isExpanded,
+              'pi-chevron-right': !isExpanded
+            }"
+            (click)="toggleClass()"
+          ></i>
+        </div>
+      </div>
+    </div>
+    <div class="sidebar-menu col-12 flex-1 p-0 -mt-6 overflow-y-auto overflow-x-hidden">
+      <div class="esa-menu grid m-0">
+        <a
+          class="esa-menu-link col-12 no-underline my-1 p-2"
+          [ngClass]="{ 'active-link': menu.isActive }"
+          *ngFor="let menu of esaMenus"
+          [class]="menu.styleClass"
+          [title]="menu.tooltip"
+          [ariaLabel]="menu.title"
+          [routerLink]="menu.routerLink"
+        >
+          <div class="grid grid-nogutter h-2point5rem h-auto">
+            <div
+              class="flex justify-content-around align-items-center"
+              [ngClass]="{ 'col-3': isExpanded, 'col-12': !isExpanded }"
+            >
+              <i *ngIf="menu.isActive" [class]="menu.icon + '-active'"></i>
+              <i *ngIf="!menu.isActive" [class]="menu.icon"></i>
+            </div>
+            <div
+              class="col-9 flex align-items-center justify-content-start"
+              *ngIf="isExpanded"
+            >
+              <label
+                class="esa-menu-text text-xl text-white line-height-2"
+                [innerHTML]="menu.title"
+              ></label>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div
+      class="sidebar-footer col-12 flex justify-content-center align-items-center"
+      [style.height]="'15%'"
+    >
+      <div class="footer-content w-10" *ngIf="isExpanded">
+        <div
+          class="content flex justify-content-center py-3 text-sm md:text-base font-bold"
+        >
+          <span>Employee ID: {{ userProfile?.employeeId }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

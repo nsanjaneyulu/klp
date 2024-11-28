@@ -1,0 +1,320 @@
+$text-color: #FFFFFF;
+$primaryTextColor: #2E3F83;
+$text-secondary-color: #6C757D;
+$primaryColor: #00549F;
+$secondaryColor: #FFFFFF;
+$font-family: $regularFont, sans-serif;
+$buttonBg: $primaryColor;
+$buttonTextColor: $primaryTextColor;
+
+/* Common styling for all devices */
+/* Track */
+::-webkit-scrollbar-track {
+  background: lightgray
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: dimgray;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: lightslategrey;
+}
+
+/* Apply styling only for desktop devices */
+@media only screen and (min-width: 992px) {
+
+  /* width */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+}
+.esa_dropdowns
+{
+  .p-dropdown-items-wrapper
+  {
+  font-size: 13px;
+  
+  }
+}
+
+.w-2point5rem {
+  width: 2.5rem;
+}
+
+.h-2point5rem {
+  height: 2.5rem;
+}
+
+.esa-button-submit {
+  background-color: #00549F;
+  color: #fff;
+  font-size: 18px;
+  height: 45px;
+  font-family: $lightFont, sans-serif;
+}
+
+.esa-button-cancel {
+  background-color: white;
+  color: #00549F;
+  border-color: #00549F;
+  font-size: 18px;
+  height: 43px;
+  font-family: $lightFont, sans-serif;
+  margin-left: 5%;
+}
+
+.esa-form-dropdown {
+  min-height: 43px;
+  font-size: 12px;
+  border-radius: 5px;
+  border-width: thin;
+  font-weight: 400;
+  color: black;
+
+  .p-dropdown-label {
+    text-wrap: wrap !important;
+    text-align: center;
+    display: flex;
+  }
+}
+
+.p-datepicker table td 
+{ 
+  span
+{
+padding: 0px !important;
+height: 2rem !important;
+width: 2rem !important;
+margin: 0px !important;
+}
+}
+.esa-form-field {
+  height: 43px;
+  font-size: 12px;
+  border-radius: 5px;
+  border-width: thin;
+  font-weight: 400;
+}
+
+.p-dropdown {
+  height: 48px !important;
+}
+
+.p-calendar {
+  height: 48px !important;
+}
+
+.p-panel-header {
+  background-color: white;
+  border-bottom: 1px solid #ABB5BE
+}
+
+.p-panel {
+  box-shadow: 0px 4px 10px 0px #0000001F !important;
+  border: 1px solid #DEE2E6 !important;
+  border-radius: 12px;
+  max-width: 100%
+}
+
+.p-datatable .p-datatable-tbody>tr {
+  border-bottom: solid 1px #D8D8D8;
+  font-size: 14px;
+  font-weight: 400;
+  color: #2D3748;
+
+}
+
+.p-datatable .p-datatable-thead>tr>th {
+  color: #3274A3;
+  border-color: #58A1C2;
+
+}
+.esa-risk
+{
+  .p-dropdown-items {.p-ripple {
+  
+    max-width:36vw;
+    }
+    }
+}
+
+.p-datepicker {
+  zoom: 0.72 !important;
+  //left: -8.35px !important;
+ // transform-origin: 0 0 !important;
+}
+thead {
+
+  border-bottom: solid 2px #58A1C2;
+  z-index: 0;
+}
+
+@media screen and (max-width:1023px) {
+  .esa-button-submit {
+    font-size: 12px;
+    padding: 8px;
+  }
+.p-dropdown-items {.p-ripple {
+  zoom: 0.9;
+  padding: 10px;
+  max-width: 63vw !important;
+  }
+  }
+
+
+  .p-blockui-document.p-component-overlay {
+    z-index: 0 !important;
+  }
+  .p-datepicker
+  {
+    left: 0px !important;
+  }
+  .p-dynamic-dialog {
+    width: 85vw !important;
+    overflow-x: scroll !important;
+
+    .p-dialog-content {
+      margin-top: 0px !important;
+      padding: 12px !important;
+    }
+
+
+  }
+
+  .header-cont {
+    font-size: 10px !important;
+  }
+
+  .cert_span {
+    margin-left: 10px !important;
+  }
+
+  .p-dialog-content {
+    margin-top: -2px !important;
+  }
+
+  .p-dialog-footer {
+    margin-top: -2px !important;
+  }
+
+  .p-dialog {
+    max-width: 94% !important;
+    margin-right: 1rem !important;
+    margin-left: 5rem !important;
+  }
+
+  .p-paginator {
+    zoom: 0.7 !important;
+  }
+
+  .esa-form-dropdown {
+
+    .p-dropdown-label {
+      font-size: 9px;
+    }
+  }
+
+  .esa-button-cancel {
+    margin-left: 0px;
+    min-width: 5rem;
+
+  }
+
+  .p-dropdown-label {
+    text-wrap: wrap !important;
+    font-size: 12px !important;
+    padding-right: 0px;
+  }
+
+  .p-dropdown-item {
+    text-wrap: wrap !important;
+    font-size: 8px;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .p-button-label {
+    font-size: 12px;
+  }
+
+  .p-tabview-nav-btn {
+    width: 1rem !important;
+  }
+
+  .right-container {
+    z-index: 0;
+  }
+
+
+
+  .layout-mask {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 998;
+    width: 100%;
+    height: 100%;
+    background-color: var(--maskbg);
+  }
+
+
+
+
+
+}
+
+@media screen and (max-width:361px) {
+  .p-dropdown-item {
+    text-wrap: wrap !important;
+    font-size: 8px;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .p-datepicker {
+ 
+    left: 0px !important;
+  }
+  .p-dialog-content {
+    margin-top: -2px !important;
+  }
+
+  .p-dialog-footer {
+    margin-top: -2px !important;
+  }
+
+  .right-container {
+    z-index: 0;
+  }
+}
+
+.p-tabview-nav-btn {
+  width: 1rem !important;
+}
+
+.p-calendar-w-btn .p-datepicker-trigger {
+  background-color: #00549F;
+}
+
+.p-blockui-document.p-component-overlay {
+  z-index: 0 !important;
+}
+
+.p-inputtext:disabled {
+  color: black;
+  font-weight: 500;
+}
+
+@media screen and (max-width:1023px) and (orientation:Landscape) {
+  .p-datepicker {
+    zoom: 0.5 !important;
+    left: -8.35px !important;
+  }
+
+  .p-blockui-document.p-component-overlay {
+    z-index: 0 !important;
+  }
+}

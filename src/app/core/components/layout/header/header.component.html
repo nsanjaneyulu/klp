@@ -1,0 +1,48 @@
+<div class="shadow-3 flex-1 md:flex justify-content-between">
+  <div class="left-content hidden md:flex">
+    <div class="page-title flex align-items-center">
+      <div class="text-left p-3 font-semibold text-xs md:text-lg line-height-2">
+        {{ pageTitle }}
+      </div>
+    </div>
+  </div>
+  <div class="right-content flex justify-content-between md:align-items-center">
+    <div class="app-title flex align-items-center">
+      <div
+        class="text-left lg:text-right p-3 font-semibold text-xs md:text-lg line-height-2"
+        [style.color]="'#2E3F83'"
+      >
+        {{ appTitle }}
+      </div>
+    </div>
+    <div
+      class="my-divider h-2rem border-x-1 border-primary-700 hidden md:block"
+    ></div>
+    <div class="profile">
+      <div class="" *ngIf="userProfile">
+        <div class="flex justify-content-end align-items-center">
+          <div
+            class="flex align-items-center justify-content-center border-circle w-2rem md:w-2point5rem h-2rem md:h-2point5rem m-2 font-semibold text-white text-xs md:text-base" style="background-color: #006eb3;"
+          >
+            {{ userProfile.initials }}
+          </div>
+          <div
+            class="align-items-center justify-content-center font-semibold text-xs line-height-2 hidden lg:text-lg  lg:flex  xl:text-lg xl:flex "
+          >
+            {{ userProfile.displayName }}
+          </div>
+          <div class="flex w-4 lg:w-auto">
+            <p-menu #menu [model]="items" [popup]="true"></p-menu>
+            <button
+              pButton
+              type="button"
+              (click)="menu.toggle($event)"
+              icon="pi pi-chevron-down"
+              class="border-none bg-white text-color-secondary"
+            ></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

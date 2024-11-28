@@ -1,0 +1,97 @@
+<p-card class="um-pcard" header="">
+  <p-tabView [scrollable]="true" (activeIndexChange)="activeTabIndexChanged($event)">
+    <p-tabPanel *ngFor="let tab of tabs" [header]="tab.title.displayName">
+      <div class="card">
+        <div class="field col-12 mb-5">
+          <label for="employeeIdTxt" class="font-semibold">E-mail Id</label>
+          <span class="required"></span>
+          <div class="formgroup-inline">
+            <span
+              class="p-input-icon-right mr-2 col-8 md:col-4 lg:col-4 xl:col-4 p-0"
+            >
+              <i class="pi pi-user"></i>
+              <input
+                required
+                class="p-inputtext-sm w-full text-overflow-ellipsis"
+                type="email"
+                pInputText
+                id="employeeIdTxt"
+                name="employeeIdTxt"
+                placeholder="Enter e-mail Id"
+                #employeeIdTxt="ngModel"
+                [(ngModel)]="employeeIdInput"
+                email
+                pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$"
+              />
+            </span>
+            <button
+              type="submit"
+              pButton
+              pRipple
+              label="Add"
+              class="p-2 col-3 md:col-2 lg:col-2 xl:col-2 esa-button-submit"
+              [disabled]="employeeIdTxt.invalid"
+              title="Add user to role"
+              (click)="addUser(tab.title.id)"
+            ></button>
+          </div>
+          <div
+            class="error-message"
+            *ngIf="employeeIdTxt.invalid && !employeeIdTxt.pristine"
+          >
+            <small *ngIf="employeeIdTxt.errors?.['required']">
+              Valid e-mail ID is required to add user.
+            </small>
+            <small *ngIf="employeeIdTxt.errors?.['email']">
+              Please enter a valid e-mail ID.
+            </small>
+          </div>
+        </div>
+        <p-table
+          [columns]="cols"
+          [value]="tab.content"
+          [tableStyle]="{ 'min-width': '50rem' }"
+          [paginator]="true"
+          [rows]="5"
+        >
+          <ng-template pTemplate="header" let-columns>
+            <tr>
+              <th scope="col" *ngFor="let col of columns">
+                {{ col.header }}
+              </th>
+              <th scope="col">Actions</th>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-rowData let-columns="columns">
+            <tr>
+              <td *ngFor="let col of columns">
+                <input
+                  class="p-inputtext-sm w-10"
+                  [style.backgroundColor]="'#F3F3F3'"
+                  title="{{ rowData[col.field] }}"
+                  type="text"
+                  pInputText
+                  [value]="rowData[col.field]"
+                  [disabled]="true"
+                />
+                <!-- {{ rowData[col.field] }} -->
+              </td>
+              <td>
+                <div
+                  class="flex flex-wrap justify-content-center align-items-center h-2point5rem w-2point5rem border-circle"
+                >
+                  <i
+                    title="Remove user from role"
+                    class="esa-icon esa-icon-20 esa-icon-trash cursor-pointer"
+                    [style.color]="'rgb(88 141 179)'"
+                    (click)="askConsentRemoveUser(tab.title.id, rowData['id'])"
+                  ></i>
+                </div>
+              </td>
+            </tr>
+          </ng-template>
+        </p-table>
+      </div>
+    </p-tabPanel>
+  </p-tabView>
+</p-card>

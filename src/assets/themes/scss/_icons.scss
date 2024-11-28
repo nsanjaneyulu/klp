@@ -1,0 +1,115 @@
+.esa-icon {
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+
+  &.esa-icon-24 {
+    width: 24px;
+    height: 24px;
+  }
+
+  &.esa-icon-16 {
+    width: 16px;
+    height: 16px;
+  }
+
+  &.esa-icon-20 {
+    width: 20px;
+    height: 20px;
+  }
+&.esa-icon-logout{
+  content: url("~/assets/icons/icon_logout.svg");
+}
+ 
+  &.esa-icon-create {
+    content: url("~/assets/icons/icon_create.svg");
+  }
+  &.esa-icon-create-active {
+    content: url("~/assets/icons/icon_create-active.svg");
+  }
+
+  &.esa-icon-tasks {
+    content: url("~/assets/icons/icon_task.svg");
+  }
+  &.esa-icon-tasks-active {
+    content: url("~/assets/icons/icon_task-active.svg");
+  }
+
+  &.esa-icon-trackers {
+    content: url("~/assets/icons/icon_tracker.svg");
+  }
+  &.esa-icon-trackers-active {
+    content: url("~/assets/icons/icon_tracker-active.svg");
+  }
+
+  &.esa-icon-bypasslist {
+    content: url("~/assets/icons/icon_bypasslist.svg");
+  }
+  &.esa-icon-bypasslist-active {
+    content: url("~/assets/icons/icon_bypasslist-active.svg");
+  }
+
+&.esa-icon-usermanagement-active{
+  content: url("~/assets/icons/icon_usermanagement-active.svg");
+}
+
+&.esa-icon-usermanagement{
+
+  content: url("~/assets/icons/icon-usermanagement.svg");
+}
+
+&.esa-icon-trash{
+
+  content: url("~/assets/icons/icon_trash.svg");
+}
+
+&.esa-icon-delete{
+
+  content: url("~/assets/icons/icon_delete.svg");
+}
+&.esa-icon-userticker{
+  content: url("~/assets/icons/icon_user-ticker.svg");
+}
+&.esa-icon-userbook{
+  content: url("~/assets/icons/icon_user-book.svg");
+}
+&.esa-icon-home {
+  content: url("~/assets/icons/icon_home.svg");
+}
+&.esa-icon-home-active {
+  content: url("~/assets/icons/icon_home-active.svg");
+}
+&.esa-icon-view-all-lessons {
+  content: url("~/assets/icons/icon-view-all-lessons-default.svg");
+}
+&.esa-icon-view-all-lessons-active {
+  content: url("~/assets/icons/icon-view-all-lessons-active.svg");
+}
+&.esa-icon-new-lesson {
+  content: url("~/assets/icons/icon-new-lesson-default.svg");
+}
+&.esa-icon-new-lesson-active {
+  content: url("~/assets/icons/icon-new-lesson-active.svg");
+}
+&.esa-icon-my-approval-tasks {
+  content: url("~/assets/icons/icon-my-approval-tasks-default.svg");
+}
+&.esa-icon-my-approval-tasks-active {
+  content: url("~/assets/icons/icon-my-approval-tasks--active.svg");
+}
+&.esa-icon-my-submissions {
+  content: url("~/assets/icons/icon-my-submissions-default.svg");
+}
+&.esa-icon-my-submissions-active {
+  content: url("~/assets/icons/icon-my-submissions-active.svg");
+}
+&.esa-icon-reports-on-lessons {
+  content: url("~/assets/icons/icon-reports-on-lessons-default.svg");
+}
+&.esa-icon-reports-on-lessons-active {
+  content: url("~/assets/icons/icon-reports-on-lessons-active.svg");
+}
+
+
+
+}

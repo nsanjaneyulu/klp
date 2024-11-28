@@ -1,0 +1,32 @@
+
+.gridStyle {
+    border: 1px solid #e5e5e5;
+    border-radius: 5px;
+}
+.lesson-details{
+    border-left: 2px solid #eee;
+    padding: 0px 1rem;
+}
+.displayFlex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.read-more-link {
+    color: #204887;
+    cursor: pointer;
+    text-decoration: underline;
+  }
+  .p-element .p-inputgroup {
+    height: 44px !important;
+  }
+  .displayAlign {
+    text-align: right;
+  }
+  .btnStyle {
+    font-size: 0.8rem !important;
+    padding: 0.4rem !important;
+  }
+  .p-search {
+    background: #204887 !important;
+  }

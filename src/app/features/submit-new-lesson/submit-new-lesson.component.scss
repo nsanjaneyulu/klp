@@ -1,0 +1,50 @@
+@import "../../../assets/themes//scss//mixin";
+.errorField {
+  color: #f00;
+}
+.image-preview {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  img {
+    max-width: 100%;
+    max-height: 200px;
+    border: 1px solid #ddd;
+    padding: 5px;
+  }
+}
+.ess-file-upload-control.disabled {
+  pointer-events: none;
+  opacity: 0.5;
+}
+@media (max-width: 768px) {
+  .image-preview {
+    margin-top: 5px;
+    img {
+      max-height: 150px;
+    }
+  }
+  .p-inputgroup {
+    // flex-direction: column;
+    align-items: flex-start;
+    .file-upload {
+      margin-bottom: 5px;
+    }
+  }
+}
+.icon-wraper {
+  position: absolute;
+  left: auto;
+  right: 0.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  background: #fff;
+  padding: 0 0.5rem;
+}
+.disabled {
+  color: grey;
+  pointer-events: none;
+  cursor: not-allowed;
+}

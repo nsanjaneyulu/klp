@@ -1,0 +1,783 @@
+<form [formGroup]="submitLessonForm">
+  <div class="mt-1">
+    <p-panel header="Submission Progress Details">
+      <img
+      [src]="getImageSrc(getRequestByIdData)"
+      alt="banner"
+        class="w-full"
+      />
+    </p-panel>
+  </div>
+  <div class="mt-1">
+    <p-panel header="Requestor Details">
+      <div class="grid">
+        <div class="flex flex-column col-12 md:col-4 lg:col-4 sm:col-12">
+          <label for="requesterID" class="fieldTitle"
+            >Employee Id <span class="errorField">*</span></label
+          >
+          <input
+            pInputText
+            formControlName="requesterID"
+            placeholder="Enter"
+            class="p-inputtext-sm fieldInput"
+            id="requesterID"
+            aria-describedby="requesterID-help"
+          />
+          <small
+            id="requesterID-help"
+            *ngIf="
+              submitLessonForm.get('requesterID').invalid &&
+              submitLessonForm.get('requesterID').touched
+            "
+            class="errorField"
+          >
+            Employee Id is required.
+          </small>
+        </div>
+        <div class="flex flex-column col-12 md:col-4 lg:col-4 sm:col-12">
+          <label for="requester" class="fieldTitle"
+            >Name <span class="errorField">*</span></label
+          >
+          <input
+            pInputText
+            formControlName="requester"
+            placeholder="Enter"
+            class="p-inputtext-sm fieldInput"
+            id="requester"
+            aria-describedby="requester-help"
+          />
+          <small
+            id="requester-help"
+            *ngIf="
+              submitLessonForm.get('requester').invalid &&
+              submitLessonForm.get('requester').touched
+            "
+            class="errorField"
+          >
+            Name is required.
+          </small>
+        </div>
+        <div class="flex flex-column col-12 md:col-4 lg:col-4 sm:col-12">
+          <label for="requesterJobTitle" class="fieldTitle"
+            >Job Title <span class="errorField">*</span></label
+          >
+          <input
+            pInputText
+            formControlName="requesterJobTitle"
+            placeholder="Enter"
+            class="p-inputtext-sm fieldInput"
+            id="requesterJobTitle"
+            aria-describedby="requesterJobTitle-help"
+          />
+          <small
+            id="requesterJobTitle-help"
+            *ngIf="
+              submitLessonForm.get('requesterJobTitle').invalid &&
+              submitLessonForm.get('requesterJobTitle').touched
+            "
+            class="errorField"
+          >
+            Job Title is required.
+          </small>
+        </div>
+        <div class="flex flex-column col-12 md:col-4 lg:col-4 sm:col-12">
+          <label for="requesterDept" class="fieldTitle"
+            >Department <span class="errorField">*</span></label
+          >
+          <input
+            pInputText
+            formControlName="requesterDept"
+            placeholder="Enter"
+            class="p-inputtext-sm fieldInput"
+            id="requesterDept"
+            aria-describedby="requesterDept-help"
+          />
+          <small
+            id="requesterDept-help"
+            *ngIf="
+              submitLessonForm.get('requesterDept').invalid &&
+              submitLessonForm.get('requesterDept').touched
+            "
+            class="errorField"
+          >
+            Department is required.
+          </small>
+        </div>
+        <div class="flex flex-column col-12 md:col-4 lg:col-4 sm:col-12">
+          <label for="requesterEmail" class="fieldTitle"
+            >Email Id <span class="errorField">*</span></label
+          >
+          <input
+            pInputText
+            formControlName="requesterEmail"
+            placeholder="Enter"
+            class="p-inputtext-sm fieldInput"
+            id="requesterEmail"
+            aria-describedby="requesterEmail-help"
+          />
+          <small
+            id="requesterEmail-help"
+            *ngIf="
+              submitLessonForm.get('requesterEmail').invalid &&
+              submitLessonForm.get('requesterEmail').touched
+            "
+            class="errorField"
+          >
+            Email Id is required.
+          </small>
+        </div>
+      </div>
+    </p-panel>
+  </div>
+  <div class="mt-5">
+    <p-panel header="Lesson Details">
+      <div>
+        <div class="flex flex-column col-12">
+          <label for="title" class="fieldTitle"
+            >Learning Title <span class="errorField">*</span></label
+          >
+          <textarea
+            formControlName="title"
+            class="w-full p-inputtext-sm fieldInput"
+            style="resize: none"
+            rows="1"
+            cols="30"
+            pInputTextarea
+            placeholder="Enter"
+          ></textarea>
+          <small
+            id="title-help"
+            *ngIf="
+              submitLessonForm.get('title').invalid &&
+              submitLessonForm.get('title').touched
+            "
+            class="errorField"
+          >
+            Learning Title is required.
+          </small>
+        </div>
+        <div class="flex flex-column col-12">
+          <label for="description" class="fieldTitle"
+            >Learning Description <span class="errorField">*</span></label
+          >
+          <textarea
+            formControlName="description"
+            class="w-full p-inputtext-sm fieldInput"
+            style="resize: none"
+            rows="2"
+            cols="15"
+            pInputTextarea
+            placeholder="Enter"
+          ></textarea>
+          <small
+            id="description-help"
+            *ngIf="
+              submitLessonForm.get('description').invalid &&
+              submitLessonForm.get('description').touched
+            "
+            class="errorField"
+          >
+            Learning Description is required.
+          </small>
+        </div>
+        <div class="flex flex-column col-12">
+          <label for="recommendation" class="fieldTitle"
+            >Learning Recommendations <span class="errorField">*</span></label
+          >
+          <textarea
+            formControlName="recommendation"
+            class="w-full p-inputtext-sm fieldInput"
+            style="resize: none"
+            rows="1"
+            cols="15"
+            pInputTextarea
+            placeholder="Enter"
+          ></textarea>
+          <small
+            id="recommendation-help"
+            *ngIf="
+              submitLessonForm.get('recommendation').invalid &&
+              submitLessonForm.get('recommendation').touched
+            "
+            class="errorField"
+          >
+            Learning Recommendations is required.
+          </small>
+        </div>
+        <div class="flex flex-column col-12">
+          <label for="comments" class="fieldTitle"
+            >Learning Comments <span class="errorField">*</span></label
+          >
+          <textarea
+            formControlName="comments"
+            class="w-full p-inputtext-sm fieldInput"
+            style="resize: none"
+            rows="1"
+            cols="15"
+            pInputTextarea
+            placeholder="Enter"
+          ></textarea>
+          <small
+            id="comments-help"
+            *ngIf="
+              submitLessonForm.get('comments').invalid &&
+              submitLessonForm.get('comments').touched
+            "
+            class="errorField"
+          >
+            Learning Comments is required.
+          </small>
+        </div>
+        <div class="col-12 grid">
+          <div class="flex flex-column col-12 md:col-4 lg:col-4 sm:col-12">
+            <label class="fieldTitle"
+              >Identified By <span class="errorField">*</span></label
+            >
+            <div class="flex align-items-center relative">
+              <input
+                pInputText
+                formControlName="identifiedBy"
+                type="text"
+                placeholder="Enter"
+                class="p-inputtext-sm fieldInput w-full"
+              />
+
+              <div class="icon-wraper">
+                <div
+                  [class.disabled]="isApproverTickerDisabled"
+                  role="button"
+                  (click)="handleApproverTicker(ctrl['identifiedBy'].value)"
+                >
+                  <i class="esa-icon esa-icon-16 esa-icon-userticker mr-2"></i>
+                </div>
+                <div
+                  role="button"
+                  [class.disabled]="isApproverTickerDisabled"
+                  (click)="handleApproverDailog()"
+                >
+                  <i class="esa-icon esa-icon-16 esa-icon-userbook"></i>
+                </div>
+              </div>
+            </div>
+            <small
+              id="identifiedBy-help"
+              *ngIf="
+                submitLessonForm.get('identifiedBy').invalid &&
+                submitLessonForm.get('identifiedBy').touched
+              "
+              class="errorField"
+            >
+              Identified By is required.
+            </small>
+          </div>
+
+          <div class="flex flex-column col-12 md:col-4 lg:col-4 sm:col-12">
+            <label for="identifiedOn" class="fieldTitle"
+              >Identified Date <span class="errorField">*</span></label
+            >
+            <p-calendar
+              formControlName="identifiedOn"
+              [iconDisplay]="'input'"
+              [readonlyInput]="true"
+              [showIcon]="true"
+              inputId="icondisplay"
+              placeholder="Enter"
+              class="p-inputtext-sm fieldInput w-full"
+            />
+            <small
+              id="identifiedOn-help"
+              *ngIf="
+                submitLessonForm.get('identifiedOn').invalid &&
+                submitLessonForm.get('identifiedOn').touched
+              "
+              class="errorField"
+            >
+              Identified Date is required.
+            </small>
+          </div>
+
+          <div class="flex flex-column col-12 md:col-4 lg:col-4 sm:col-12">
+            <label class="fieldTitle"
+              >Security Classification <span class="errorField">*</span></label
+            >
+
+            <p-dropdown
+              [options]="securityClassificationOptions"
+              placeholder="Select"
+              formControlName="securityClassification"
+            ></p-dropdown>
+
+            <small
+              id="securityClassification-help"
+              *ngIf="
+                submitLessonForm.get('securityClassification').invalid &&
+                submitLessonForm.get('securityClassification').touched
+              "
+              class="errorField"
+            >
+              Security Classification is required.
+            </small>
+          </div>
+        </div>
+        <div class="col-12 grid">
+          <div class="flex flex-column col-12">
+            <label for="keywords" class="fieldTitle"
+              >Keywords <span class="errorField">*</span></label
+            >
+            <textarea
+              formControlName="keywords"
+              class="w-full p-inputtext-sm fieldInput"
+              style="resize: none"
+              rows="1"
+              cols="15"
+              pInputTextarea
+              placeholder="Enter"
+            ></textarea>
+            <small
+              id="keywords-help"
+              *ngIf="
+                submitLessonForm.get('keywords').invalid &&
+                submitLessonForm.get('keywords').touched
+              "
+              class="errorField"
+            >
+              Keywords is required.
+            </small>
+          </div>
+        </div>
+        <div class="col-12 grid">
+          <div class="field col-12 md:col-6 esa-form-control mb-3">
+            <div class="image-preview mt-5 mb-5">
+              <img
+                [src]="lessonImageUrl || defaultImageUrl"
+                alt="Image Preview"
+              />
+            </div>
+            <div class="fieldTitle">Thumbnail</div>
+            <div class="flex justify-space-between w-full">
+              <div
+                class="p-inputgroup cursor-pointer h-3rem ess-file-upload-control"
+                [class.disabled]="lessonImageUrl"
+                (click)="fcLesson.click()"
+              >
+                <span class="p-inputgroup-addon cursor-pointer file-upload">
+                  <i class="pi pi-upload cursor-pointer"></i>
+                  <label class="ml-2 cursor-pointer hidden lg:block xl:block"
+                    >Choose a file</label
+                  >
+                </span>
+                <input
+                  pInputText
+                  class="p-inputtext-sm fieldInput cursor-pointer"
+                  [value]="lessonSelectedFile"
+                  placeholder="Enter"
+                  readonly
+                  [disabled]="lessonImageUrl"
+                />
+                <input
+                  title="Select File"
+                  #fcLesson
+                  pRipple
+                  type="file"
+                  formControlName="thumbnail"
+                  class="hidden"
+                  (change)="onLessonFileSelect($event)"
+                  [accept]="fileTypeValidator"
+                />
+              </div>
+              <div class="ml-2">
+                <button
+                  [disabled]="isButtonDisabled"
+                  pButton
+                  pRipple
+                  *ngIf="lessonImageUrl"
+                  (click)="removeImage(); fcLesson.remove()"
+                  class="submit-btn"
+                  type="button"
+                >
+                  Remove
+                </button>
+              </div>
+            </div>
+
+            <span class="text-xs"
+              >Note: Only {{ fileTypeValidator }} files and size less than 10MB
+              is supported.</span
+            >
+            <div class="text-xs" style="color: #f00" *ngIf="onlyJPGAllowed">
+              Only .jpg files are allowed, File size should be less than 10MB
+            </div>
+          </div>
+        </div>
+      </div>
+    </p-panel>
+  </div>
+  <div class="mt-5">
+    <p-panel header="Meta Data">
+      <div class="grid">
+        <div class="flex flex-column col-12 md:col-4 lg:col-4 sm:col-12">
+          <label for="source" class="fieldTitle"
+            >Learning Source <span class="errorField">*</span></label
+          >
+          <p-dropdown
+            [options]="learningApproversOptions"
+            placeholder="Select"
+            formControlName="source"
+            (onChange)="onLearningSourceChange($event)"
+          ></p-dropdown>
+          <small
+            id="source-help"
+            *ngIf="
+              submitLessonForm.get('source').invalid &&
+              submitLessonForm.get('source').touched
+            "
+            class="errorField"
+          >
+            Learning Source is required.
+          </small>
+        </div>
+        <div class="flex flex-column col-12 md:col-4 lg:col-4 sm:col-12">
+          <label for="sourceDepartment" class="fieldTitle"
+            >Source Department (Communities)
+            <span class="errorField">*</span></label
+          >
+          <p-dropdown
+            [options]="sourceDepartmentOptions"
+            placeholder="Select"
+            formControlName="sourceDepartment"
+            (onChange)="onSourceDepartmentChange($event)"
+          ></p-dropdown>
+          <small
+            id="sourceDepartment-help"
+            *ngIf="
+              submitLessonForm.get('sourceDepartment').invalid &&
+              submitLessonForm.get('sourceDepartment').touched
+            "
+            class="errorField"
+          >
+            Source Department is required.
+          </small>
+        </div>
+        <div class="flex flex-column col-12 md:col-4 lg:col-4 sm:col-12">
+          <label for="expertiseArea" class="fieldTitle"
+            >Expertise Area (Category Experts)</label
+          >
+          <p-dropdown
+            [options]="expertiseAreaOptions"
+            placeholder="Select"
+            formControlName="expertiseArea"
+            (onChange)="expertiseAreaChange($event)"
+          ></p-dropdown>
+        </div>
+      </div>
+      <div *ngIf="metaDataTableVisible">
+        <p-table [value]="metaDataTableData">
+          <ng-template pTemplate="header">
+            <tr>
+              <th id="sNo">Sr.No</th>
+              <th id="learningApprovar">Learning Approver</th>
+              <th id="emailId">Email Id</th>
+            </tr>
+          </ng-template>
+          <ng-template
+            pTemplate="body"
+            let-metaDataTableData
+            let-rowIndex="rowIndex"
+          >
+            <tr>
+              <td [id]="'sNo' + rowIndex">{{ rowIndex + 1 }}</td>
+              <td [id]="'learningApprovar' + rowIndex">
+                {{ metaDataTableData.name }}
+              </td>
+              <td [id]="'emailId' + rowIndex">{{ metaDataTableData.email }}</td>
+            </tr>
+          </ng-template>
+        </p-table>
+      </div>
+    </p-panel>
+  </div>
+  <div class="mt-5" *ngIf="documentsDataShow">
+    <p-panel header="Documents">
+      <div>
+        <p-table [value]="documentsData">
+          <ng-template pTemplate="header">
+            <tr>
+              <th id="sNo">Sr.No</th>
+              <th id="fileName">File Name</th>
+              <th id="activity">Activity</th>
+              <th id="uploadedBy">Uploaded By</th>
+              <th id="fileType">File Type</th>
+              <th id="action">Action</th>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-doc let-rowIndex="rowIndex">
+            <tr>
+              <td [id]="'sNo' + rowIndex">{{ rowIndex + 1 }}</td>
+              <td [id]="'fileName' + rowIndex">{{ doc.name }}</td>
+              <td [id]="'activity' + rowIndex">{{ doc.activity }}</td>
+              <td [id]="'uploadBy' + rowIndex">{{ doc.uploadBy }}</td>
+              <td [id]="'fileType' + rowIndex">{{ doc.fileType }}</td>
+              <td>
+                <a
+                  title="Download the file"
+                  href="javascript:void(0);"
+                  (click)="downloadFile(doc)"
+                >
+                  <i class="pi pi-download" style="color: #00549f"></i>
+                </a>
+
+              </td>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="emptymessage">
+            <tr>
+              <td colspan="6" class="text-center">No data found</td>
+            </tr>
+          </ng-template>
+        </p-table>
+      </div>
+    </p-panel>
+  </div>
+  <div class="mt-5" *ngIf="historyDataShow">
+    <p-panel header="History">
+      <p-table
+        [value]="historyTableData"
+        [(selection)]="selectedRow"
+        [rows]="10"
+        [rowsPerPageOptions]="[10, 20, 30]"
+      >
+        <ng-template pTemplate="header">
+          <tr>
+            <th id="details">Details</th>
+            <th
+              [id]="col.field"
+              *ngFor="let col of historyTableColumnsData"
+              pSortableColumn="{{ col.field }}"
+            >
+              {{ col.header }}
+            </th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-row let-rowIndex="rowIndex">
+          <tr [pSelectableRow]="row">
+            <td id="detailsrowIndex">
+              <i
+                style="cursor: pointer; color: #00549f"
+                class="pi"
+                [ngClass]="{
+                  'pi-plus': selectedRow !== row,
+                  'pi-minus': selectedRow === row
+                }"
+                (click)="toggleRow(row)"
+              ></i>
+            </td>
+            <td
+              [id]="row[col.field] + rowIndex"
+              *ngFor="let col of historyTableColumnsData"
+            >
+              {{ row[col.field] }}
+            </td>
+          </tr>
+          <tr *ngIf="selectedRow === row">
+            <td colspan="9" id="comments">
+              <div class="container">
+                <div class="form-group">
+                  <div class="form-control">
+                    <p>{{ selectedRow.comments }}</p>
+                  </div>
+                </div>
+              </div>
+            </td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </p-panel>
+  </div>
+  <div class="mt-5" *ngIf="workFlowActionsShow">
+    <p-panel header="Work Flow Actions">
+      <div class="grid">
+        <div class="flex flex-column col-12 md:col-4 lg:col-4 sm:col-12">
+          <label for="action" class="fieldTitle"
+            >Action <span class="errorField">*</span></label
+          >
+          <p-dropdown
+            [options]="actionTypeOptions"
+            placeholder="Select"
+            formControlName="action"
+            (onChange)="actionChange($event)"
+          ></p-dropdown>
+          <small
+            id="action-help"
+            *ngIf="
+              submitLessonForm.get('action').invalid &&
+              submitLessonForm.get('action').touched
+            "
+            class="errorField"
+          >
+            Action is required.
+          </small>
+        </div>
+      </div>
+      <div *ngIf="workFlowTableVisible && expertiseAreaID">
+        <p-table [value]="workFlowTableData">
+          <ng-template pTemplate="header">
+            <tr>
+              <th id="sNo">Sr.No</th>
+              <th id="categoryExpert">Category Expert</th>
+              <th id="emailId">Email Id</th>
+            </tr>
+          </ng-template>
+          <ng-template
+            pTemplate="body"
+            let-workFlowTableData
+            let-rowIndex="rowIndex"
+          >
+            <tr>
+              <td [id]="'sNo' + rowIndex">{{ rowIndex + 1 }}</td>
+              <td [id]="'categoryExpert' + rowIndex">
+                {{ workFlowTableData.name }}
+              </td>
+              <td [id]="'emailId' + rowIndex">{{ workFlowTableData.email }}</td>
+            </tr>
+          </ng-template>
+        </p-table>
+      </div>
+      <div class="grid">
+        <div class="flex flex-column col-12">
+          <label for="actionComments" class="fieldTitle">Comments</label>
+          <textarea
+            formControlName="actionComments"
+            class="w-full"
+            style="resize: none"
+            rows="2"
+            cols="30"
+            pInputTextarea
+          ></textarea>
+        </div>
+      </div>
+      <div class="formgrid grid">
+        <div
+          class="field col-12 md:col-4 lg:col-4 sm:col-12 esa-form-control mb-3"
+        >
+          <label class="esa-form-label fieldTitle">Attachments</label>
+          <div class="flex justify-space-between w-full">
+            <div
+              class="p-inputgroup cursor-pointer h-3rem ess-file-upload-control"
+              (click)="fcWorkFlow.click()"
+            >
+              <span class="p-inputgroup-addon cursor-pointer file-upload">
+                <i class="pi pi-upload cursor-pointer"></i>
+                <label class="ml-2 cursor-pointer hidden lg:block xl:block"
+                  >Choose a file</label
+                >
+              </span>
+              <input
+                pInputText
+                class="p-inputtext-sm fieldInput cursor-pointer"
+                [value]="workFlowSelectedFile"
+                placeholder="No files chosen"
+                readonly
+              />
+              <input
+                title="Select File"
+                #fcWorkFlow
+                pRipple
+                type="file"
+                class="hidden"
+                (change)="onWorkFlowFileSelect($event)"
+                [accept]="workFlowFileattchment"
+              />
+            </div>
+          </div>
+
+          <span class="text-xs"
+            >Note: Only {{ workFlowFileattchment }} files and size less than
+            10MB is supported.</span
+          >
+          <div class="text-xs" style="color: #f00" *ngIf="workFlowAttachment">
+            File size exceeds the 10MB limit, Only PDF and JPG files are allowed
+          </div>
+        </div>
+        <div
+          class="field col-12 md:col-2 lg:col-2 md:col-2 sm:col-12 esa-form-control"
+        >
+          <label
+            class="esa-form-label hidden lg:block xl:block md:block text-white-alpha-10 upload-btn-label"
+            >Upload</label
+          >
+          <button
+            pButton
+            PRipple
+            class="submit-btn"
+            type="button"
+            label="Upload"
+            (click)="uploadDoc(fcWorkFlow)"
+            aria-label="Upload"
+            [disabled]="isUploadButtonDisabled"
+          ></button>
+        </div>
+        <div
+          class="mt-5 col-12 md:col-12 lg:col-12 md:col-12 sm:col-12"
+          *ngIf="uploadDocumentsData"
+        >
+          <p-panel>
+            <div>
+              <p-table [value]="createRequest.attachments">
+                <ng-template pTemplate="header">
+                  <tr>
+                    <th id="sNo">Sr.No</th>
+                    <th id="fileName">File Name</th>
+                    <th id="activity">Activity</th>
+                    <th id="uploadedBy">Uploaded By</th>
+                    <th id="fileType">File Type</th>
+                    <th id="action">Action</th>
+                  </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-doc let-rowIndex="rowIndex">
+                  <tr>
+                    <td [id]="'sNo' + rowIndex">{{ rowIndex + 1 }}</td>
+                    <td [id]="'fileName' + rowIndex">{{ doc.name }}</td>
+                    <td [id]="'activity' + rowIndex">{{ doc.activity }}</td>
+                    <td [id]="'uploadBy' + rowIndex">{{ doc.uploadBy }}</td>
+                    <td [id]="'fileType' + rowIndex">{{ doc.fileType }}</td>
+                    <td>
+                      <span
+                        [class.disabled]="isIconDisabled"
+                        (click)="downloadFile(doc)"
+                        class="mr-3"
+                        ><i class="pi pi pi-download" style="color: #00549f"></i
+                      ></span>
+                      <span
+                        [class.disabled]="isIconDisabled"
+                        (click)="deleteFile(doc.id, doc.localId)"
+                        ><i class="pi pi pi-trash" style="color: #f00"></i
+                      ></span>
+                    </td>
+                  </tr>
+                </ng-template>
+                <ng-template pTemplate="emptymessage">
+                  <tr>
+                    <td colspan="6" class="text-center">No data found</td>
+                  </tr>
+                </ng-template>
+              </p-table>
+            </div>
+          </p-panel>
+        </div>
+      </div>
+    </p-panel>
+  </div>
+
+  <div class="mt-3">
+    <button
+      pButton
+      *ngIf="!submitButtonShow"
+      pRipple
+      class="submit-btn"
+      type="submit"
+      (click)="submitLessionConfirm()"
+      [disabled]="submitLessonForm.invalid"
+      label="Submit"
+    ></button>
+  </div>
+</form>

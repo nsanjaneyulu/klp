@@ -1,0 +1,88 @@
+  * {
+    font-family: $lightFont, sans-serif;
+    -webkit-user-select: none;
+    user-select: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  .esa-btn-confirm-yes {
+    background-color: #00549F;
+    border: 1px solid #00549F;
+    padding: 3px 15px;
+    font-weight: 100;
+    margin: 0 5px;
+    border-radius: 5px;
+  }
+
+  .esa-btn-confirm-no {
+    background-color: #64748B;
+    border: 1px solid #64748B;
+    padding: 3px 15px;
+    font-weight: 100;
+    margin: 0 5px;
+    border-radius: 5px;
+  }
+
+  .scrollTop {
+    bottom: 10%;
+    right: 2%;
+  }
+
+  @media (max-width: 768px) {
+    .scrollTop {
+      .p-scrolltop {
+        height: 1.75rem;
+        width: 1.75rem;
+
+        .p-scrolltop-icon::before {
+          font-size: large;
+        }
+      }
+    }
+  }
+
+  .p-toast {
+    font-size: 14px;
+    opacity: 1;
+    width: 50%;
+
+    &.p-toast-top-center {
+      top: 80px;
+    }
+
+    .p-toast-message {
+      border: 1px solid;
+
+      &.p-toast-message-error {
+        background: #f8d7da;
+        border-color: #db0404;
+        color: #db0404;
+
+        .p-toast-icon-close {
+          color: #db0404;
+        }
+      }
+
+      &.p-toast-message-success {
+        background: #d1e7dd;
+        border-color: #305745;
+        color: #305745;
+
+        .p-toast-icon-close {
+          color: #305745;
+        }
+      }
+
+      .p-toast-message-content {
+        padding: 0.5rem 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .p-toast-detail {
+          margin: 0;
+        }
+      }
+    }
+  }

@@ -1,0 +1,27 @@
+<swiper
+  [slidesPerView]="3"
+  [spaceBetween]="30"
+  [loop]="true"
+  [effect]="'coverflow'"
+  [grabCursor]="true"
+  [centeredSlides]="true"
+  [coverflowEffect]="{
+    rotate: 50,
+    stretch: 0,
+    depth: 100,
+    modifier: 1,
+    slideShadows: true
+  }"
+  class="mySwiper"
+>
+  <ng-template swiperSlide *ngFor="let item of carouselItems">
+    <div class="carousel-item">
+      <img [src]="item.image" alt="{{item.title}}" />
+      <div class="carousel-caption">
+        <h3>{{item.title}}</h3>
+        <p>{{item.description}}</p>
+        <button class="btn-know-more">Know More -></button>
+      </div>
+    </div>
+  </ng-template>
+</swiper>

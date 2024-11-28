@@ -1,0 +1,86 @@
+@media (min-width:320px)  { /* smartphones, portrait iPhone, portrait 480x320 phones (Android) */ }
+@media (min-width:480px)  { /* smartphones, Android phones, landscape iPhone */ }
+@media (min-width:600px)  { /* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */ }
+@media (min-width:801px)  { /* tablet, landscape iPad, lo-res laptops ands desktops */ }
+@media (min-width:1025px) { /* big landscape tablets, laptops, and desktops */ }
+@media (min-width:1281px) { /* hi-res laptops and desktops */ }
+// $pc: 1024px;    // PC screen size.
+// $tablet: 720px; // Tablet screen size.
+// $phone: 320px;  // Phone screen size.
+@mixin for-mobile-portrait{
+    @media (min-width:480px)  {
+        @content;
+    }
+}
+
+@mixin for-mobile-landscap{
+    @media (max-width:768px)  {
+        @content;
+    }
+}
+
+@mixin for-tablet-portrait{
+    @media (max-width:1025px)  {
+        @content;
+    }
+}
+
+// @mixin responsive($media) {
+//     @if $media= $phone {
+//       @media only screen and (max-width: #{$tablet - 1}) {
+//         @content;
+//       }
+//     }
+//     @else if $media= $tablet {
+//       @media only screen and (min-width: #{$tablet - 1}) and (max-width: $pc) {
+//         @content;
+//       }
+//     }
+//     @else if $media= $pc {
+//       @media only screen and (min-width: #{$pc + 1}) and (min-width: $pc) {
+//         @content;
+//       }
+//     }
+//     // @else if $media= pc_tablet {
+//     //   @media only screen and (min-width: #{$tablet - 1}) {
+//     //     @content;
+//     //   }
+//     // }
+//   }
+@mixin for-small-phone-only {
+  @media (max-width: 480px) {
+    @content;
+  }
+}
+
+@mixin for-phone-only {
+    @media (max-width: 576px) {
+      @content;
+    }
+  }
+  @mixin for-phone-horiz-only {
+    @media only screen and (max-device-width: 960px) {
+      @content;
+    }
+  }
+  @mixin for-tablet-portrait-up {
+    @media (min-width: 768px) {
+      @content;
+    }
+  }
+  @mixin for-tablet-landscape-up {
+    @media (min-width: 992px) {
+      @content;
+    }
+  }
+  @mixin for-desktop-up {
+    @media (min-width: 1200px) {
+      @content;
+    }
+  }
+  @mixin for-big-desktop-up {
+    @media (min-width: 1400px) {
+      @content;
+    }
+  }
+  

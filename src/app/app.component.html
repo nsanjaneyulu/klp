@@ -1,0 +1,64 @@
+<div class="grid m-0 h-full" *ngIf="isAuthenticated">
+  <aside class="left-container col-fixed p-0 m-0 z-5 h-full">
+    <esa-sidebar (flagSignal)="flagSignalselection($event)"></esa-sidebar>
+  </aside>
+  <div #rgtcont class="right-container col-8 flex-grow-1 p-0 m-0 h-full">
+    <div class="flex flex-column h-full">
+      <header class="">
+        <esa-header></esa-header>
+      </header>
+      <nav class="ml-3 mt-3">
+        <esa-breadcrumbs></esa-breadcrumbs>
+      </nav>
+      <main class="flex-1 p-4 mb-3 h-full overflow-y-auto">
+        <div class="layout-content min-h-full">
+          <router-outlet></router-outlet>
+        </div>
+        <p-scrollTop
+          target="parent"
+          [behavior]="'smooth'"
+          [threshold]="1000"
+          icon="pi pi-arrow-up"
+          class="scrollTop absolute"
+        ></p-scrollTop>
+      </main>
+      <footer class="">
+        <esa-footer></esa-footer>
+      </footer>
+    
+    </div>
+
+  </div>
+  <p-blockUI [blocked]="blockdatas"> </p-blockUI>
+</div>
+
+
+<esa-loading></esa-loading>
+<p-toast position="top-center">
+  <ng-template let-msg pTemplate="msg" class="justify-content-center">
+    <span [innerHTML]="msg.detail"></span>
+  </ng-template>
+</p-toast>
+<p-confirmDialog #cd [style]="{ minWidth: '300px' }">
+  <ng-template pTemplate="footer">
+    <button
+      type="button"
+      pButton
+      icon="pi pi-check"
+      label="Yes"
+      size="small"
+      class="esa-btn-confirm-yes"
+      (click)="cd.accept()"
+    ></button>
+    <button
+      type="button"
+      pButton
+      icon="pi pi-times"
+      label="No"
+      severity="secondary"
+      class="esa-btn-confirm-no"
+      size="small"
+      (click)="cd.reject()"
+    ></button>
+  </ng-template>
+</p-confirmDialog>

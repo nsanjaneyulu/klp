@@ -1,0 +1,23 @@
+@import "/assets/themes/skins/default/theme-default.scss";
+
+ .p-breadcrumb {
+  background: none !important;
+  border: none !important;
+  padding-top: 0.7rem !important;
+  padding-bottom: 0.7rem !important;
+}
+
+ .p-menuitem-text {
+  font-family: $boldFont, sans-serif;
+  color: var(--text-color-secondary);
+
+  @media screen and (max-width: 767px) {
+    font-size: x-small;
+  }
+}
+.p-breadcrumb .p-breadcrumb-list li .p-menuitem-link .p-menuitem-text{
+  color: #00549F  !important;
+ }
+ .p-breadcrumb .p-breadcrumb-list li:last-child .p-menuitem-link .p-menuitem-text{
+  color: grey  !important;
+}

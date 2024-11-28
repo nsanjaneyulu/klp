@@ -1,0 +1,85 @@
+.form {
+  padding: 20px;
+
+  input,
+  button,
+  select,
+  textarea {
+    box-shadow: none;
+
+    * {
+      box-shadow: none;
+    }
+  }
+
+  .form-title {
+    display: block;
+    font-size: 40px;
+    width: 100%;
+    color: #0D2C6E;
+    font-weight: bold;
+  }
+
+  .form-desc {
+    display: block;
+    font-size: 22px;
+    width: 100%;
+  }
+
+  .esa-button-submit {
+    background-color: #00549F;
+    color: #fff;
+    font-size: 18px;
+    height: 45px;
+    font-family: $lightFont, sans-serif;
+  }
+
+  .esa-form-control {
+    display: flex;
+    flex-flow: column wrap;
+    align-items: stretch;
+
+    .esa-form-label {
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    .esa-form-field {
+      height: 48px;
+      font-size: 14px;
+    }
+    .p-dropdown {
+      height: 48px !important;
+    }
+    
+    .esa-form-hint {
+      font-family: $lightFont, sans-serif;
+      font-size: 14px;
+      color: #9197A4;
+    }
+  }
+}
+
+.p-dropdown-label {
+  text-wrap: wrap !important;
+  align-self: center;
+  padding: 10px;
+}
+
+.esa-form-dropdown {
+  max-height: 43px;
+
+}
+
+
+.required:after {
+  content: " *";
+  color: red;
+  margin-top: 1%;
+}
+
+.error-message {
+  color: red;
+  font-weight: 400;
+  font-size: 14px;
+}

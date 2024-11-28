@@ -1,0 +1,31 @@
+// Variables
+$banner-image: url("../../../assets/images/KLP/knowledge-learning-banner.jpg");
+
+// Styles
+.dashboard {
+  width: 30%;
+  height: 40vh; // Adjust height as needed
+  background-color: #f0f0f0; // Set background color for the dashboard
+
+  .banner {
+    width: 3%;
+    height: 2px; // Adjust height as needed
+    background: $banner-image;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff; // Text color for the banner content
+    font-size: 24px; // Adjust font size as needed
+  }
+}
+
+.banner-container {
+  text-align: center; /* Center the image horizontally */
+}
+
+.banner-image {
+  max-width: 100%; /* Make the image responsive */
+  height: auto; /* Maintain aspect ratio */
+}

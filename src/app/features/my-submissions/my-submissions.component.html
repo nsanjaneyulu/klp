@@ -1,0 +1,407 @@
+<div class="mb-5">
+  <button
+    pButton
+    pRipple
+    class="approvalTask custom-button text-base"
+    type="button"
+    [outlined]="true"
+    label="Advanced Filters"
+    (click)="toggleFilters()"
+  >
+  <i class="mr-1" [class]="showFilters ? 'pi pi-angle-up' : 'pi pi-angle-down'" style="color: #012776"></i>
+  </button>
+  <div *ngIf="showFilters" class="mt-5">
+    <div class="displayAlign"><button
+      pButton
+      pRipple
+      class="custom-button displayAlign text-base"
+      type="button"
+      [outlined]="true"
+      (click)="clearFilter()"
+      label="Clear Filter"
+    >
+    </button></div>
+    <form [formGroup]="submitLessonForm" (ngSubmit)="advancedSearch()">
+      <div class="grid">
+        <div class="flex flex-column col-12 md:col-4 lg:col-4 sm:col-12">
+          <label for="employeeId" class="fieldTitle">Reference No</label>
+          <input
+            pInputText
+            formControlName="referenceNo"
+            placeholder="Enter"
+            class="p-inputtext-sm fieldInput"
+            id="referenceNo"
+            aria-describedby="referenceNo-help"
+          />
+        </div>
+        <div class="flex flex-column col-12 md:col-4 lg:col-4 sm:col-12">
+          <label for="title" class="fieldTitle">Title</label>
+          <input
+            pInputText
+            formControlName="title"
+            placeholder="Enter"
+            class="p-inputtext-sm fieldInput"
+            id="title"
+            aria-describedby="title-help"
+          />
+        </div>
+        <div class="flex flex-column col-12 md:col-4 lg:col-4 sm:col-12">
+          <label for="description" class="fieldTitle">Description</label>
+          <input
+            pInputText
+            formControlName="description"
+            placeholder="Enter"
+            class="p-inputtext-sm fieldInput"
+            id="description"
+            aria-describedby="description-help"
+          />
+        </div>
+        <div class="flex flex-column col-12 md:col-4 lg:col-4 sm:col-12">
+          <label for="recommendation" class="fieldTitle">Recommendation</label>
+          <input
+            pInputText
+            formControlName="recommendation"
+            placeholder="Enter"
+            class="p-inputtext-sm fieldInput"
+            id="recommendation"
+            aria-describedby="recommendation-help"
+          />
+        </div>
+        <div class="flex flex-column col-12 md:col-4 lg:col-4 sm:col-12">
+          <label for="comments" class="fieldTitle">Comments</label>
+          <input
+            pInputText
+            formControlName="comments"
+            placeholder="Enter"
+            class="p-inputtext-sm fieldInput"
+            id="comments"
+            aria-describedby="comments-help"
+          />
+        </div>
+        <div class="flex flex-column col-12 md:col-4 lg:col-4 sm:col-12">
+          <label for="emailId" class="fieldTitle">Keywords</label>
+          <input
+            pInputText
+            formControlName="keywords"
+            placeholder="Enter"
+            class="p-inputtext-sm fieldInput"
+            id="keywords"
+            aria-describedby="keywords-help"
+          />
+        </div>
+        <div class="flex flex-column col-12 md:col-4 lg:col-4 sm:col-12">
+          <label for="securityClassification" class="fieldTitle"
+            >Security Classification
+          </label>
+          <p-dropdown
+            [options]="securityClassificationOptions"
+            formControlName="securityClassification"
+            class="fieldInput"
+            placeholder="Select"
+          ></p-dropdown>
+        </div>
+        <div class="flex flex-column col-12 md:col-4 lg:col-4 sm:col-12">
+          <label for="status" class="fieldTitle">Status</label>
+          <p-dropdown
+            formControlName="status"
+            [options]="statusOptions"
+            placeholder="Select"
+          ></p-dropdown>
+        </div>
+        <div class="flex flex-column col-12 md:col-4 lg:col-4 sm:col-12">
+          <label for="lessonType" class="fieldTitle">Lesson Type</label>
+          <p-dropdown
+            formControlName="lessonType"
+            [options]="lessonTypeOptions"
+            placeholder="Select"
+          ></p-dropdown>
+        </div>
+        <div class="flex flex-column col-12 md:col-4 lg:col-4 sm:col-12">
+          <label for="emailId" class="fieldTitle">Learning Source</label>
+          <p-dropdown
+            formControlName="source"
+            [options]="learningApproversOptions"
+            (onChange)="onLearningSourceChange($event)"
+            placeholder="Select"
+          ></p-dropdown>
+        </div>
+        <div class="flex flex-column col-12 md:col-4 lg:col-4 sm:col-12">
+          <label for="emailId" class="fieldTitle">Requestor Department</label>
+          <p-dropdown
+            formControlName="requesterDept"
+            [options]="getRequestorDepartmentOptions"
+            placeholder="Select"
+          ></p-dropdown>
+        </div>
+        <div class="flex flex-column col-12 md:col-4 lg:col-4 sm:col-12">
+          <label for="emailId" class="fieldTitle">Source Department</label>
+          <p-dropdown
+            formControlName="sourceDepartment"
+            [options]="sourceDepartmentOptions"
+            (onChange)="onSourceDepartmentChange($event)"
+            placeholder="Select"
+          ></p-dropdown>
+        </div>
+        <div class="flex flex-column col-12 md:col-4 lg:col-2 sm:col-12">
+          <label for="emailId" class="fieldTitle">Identified From</label>
+          <p-calendar
+            formControlName="identifiedFrom"
+            [iconDisplay]="'input'"
+            [readonlyInput]="true"
+            [showIcon]="true"
+            inputId="icondisplay"
+            placeholder="Enter"
+          />
+        </div>
+        <div class="flex flex-column col-12 md:col-4 lg:col-2 sm:col-12">
+          <label for="emailId" class="fieldTitle">Identified To</label>
+          <p-calendar
+            formControlName="identifiedTo"
+            [iconDisplay]="'input'"
+            [readonlyInput]="true"
+            [showIcon]="true"
+            inputId="icondisplay"
+            placeholder="Enter"
+          />
+        </div>
+        <div class="flex flex-column col-12 md:col-4 lg:col-2 sm:col-12">
+          <label for="emailId" class="fieldTitle">Created From</label>
+          <p-calendar
+            formControlName="createdFrom"
+            [iconDisplay]="'input'"
+            [readonlyInput]="true"
+            [showIcon]="true"
+            inputId="icondisplay"
+            placeholder="Enter"
+          />
+        </div>
+        <div class="flex flex-column col-12 md:col-4 lg:col-2 sm:col-12">
+          <label for="emailId" class="fieldTitle">Created To</label>
+          <p-calendar
+            formControlName="createdTo"
+            [iconDisplay]="'input'"
+            [readonlyInput]="true"
+            [showIcon]="true"
+            inputId="icondisplay"
+            placeholder="Enter"
+          />
+        </div>
+        <div class="flex flex-column col-12 md:col-4 lg:col-2 sm:col-12">
+          <label for="emailId" class="fieldTitle">Expertise Area</label>
+          <p-dropdown
+            formControlName="expertiseArea"
+            [options]="expertiseAreaOptions"
+            placeholder="Select"
+          ></p-dropdown>
+        </div>
+        <div class="col-12 md:col-4 lg:col-2 sm:col-12 mt-4">
+          <button
+            pButton
+            type="submit"
+            label="Search"
+            type="submit"
+            class="submit-btn"
+          ></button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+<div class="grid">
+  <div class="col">
+    <div
+      class="flex justify-content-between esa-custom-flex align-items-center"
+    >
+      <p class="boldFont">Showing {{ totalRecords }} results:</p>
+      <button
+        pButton
+        pRipple
+        class="esa-button-cancel custom-button text-base"
+        type="button"
+        [outlined]="true"
+        label="Export to Excel"
+        (click)="exporttoExcel()"
+      >
+        <i class="pi pi-download mr-1" style="color: #012776"></i>
+      </button>
+    </div>
+  </div>
+</div>
+<p-panel header="My Submissions List" class="custom-table-pannel mt-5">
+  <p-table
+    class="custom-table"
+    [value]="mySubmissionsListData"
+    [responsive]="true"
+    [resizableColumns]="true"
+    [styleClass]="'w-full'"
+    [lazy]="true"
+    [paginator]="true"
+    (onLazyLoad)="getMyTracker($event)"
+    (onFilter)="onfilter($event)"
+    (onPageChange)="handlePagination($event)"
+    [rows]="pageSize"
+    [totalRecords]="totalRecords"
+    [rowsPerPageOptions]="rowsPerPageOptions"
+    [showCurrentPageReport]="true"
+    [showPageLinks]="false"
+    [showFirstLastIcon]="false"
+    currentPageReportTemplate="{first} - {last} of {totalRecords}"
+  >
+    <ng-template pTemplate="header">
+      <tr>
+        <th
+          id="refNo"
+          pSortableColumn="referenceNo"
+          [ngStyle]="{ 'min-width': '12rem' }"
+        >
+          Reference Number. <p-sortIcon field="referenceNo" />
+        </th>
+        <th
+          id="requester"
+          pSortableColumn="requester"
+          [ngStyle]="{ 'min-width': '12rem' }"
+        >
+          Requester Name <p-sortIcon field="requester" />
+        </th>
+
+        <th
+        id="lessonType"
+        pSortableColumn="lessonType"
+        [ngStyle]="{ 'min-width': '12rem' }"
+      >
+      Lesson Type <p-sortIcon field="lessonType" />
+      </th>
+
+        <th
+          id="createdOn"
+          pSortableColumn="createdOn"
+          [ngStyle]="{ 'min-width': '12rem' }"
+        >
+          Created On <p-sortIcon field="createdOn" />
+        </th>
+        <th
+          id="modifiedOn"
+          pSortableColumn="modifiedOn"
+          [ngStyle]="{ 'min-width': '12rem' }"
+        >
+          Last Action On <p-sortIcon field="modifiedOn" />
+        </th>
+        <th
+          id="status"
+          pSortableColumn="status"
+          [ngStyle]="{ 'min-width': '12rem' }"
+        >
+          Status <p-sortIcon field="status" />
+        </th>
+
+        <th
+          id="actionUser"
+          pSortableColumn="actionUser"
+          [ngStyle]="{ 'min-width': '12rem' }"
+        >
+          Assign To <p-sortIcon field="actionUser" />
+        </th>
+      </tr>
+      <tr>
+        <th id="ftrRefno">
+          <p-columnFilter
+            type="text"
+            field="referenceNo"
+            placeholder="Search"
+            ariaLabel="Filter Name"
+            [showClearButton]="true"
+          />
+        </th>
+        <th id="ftrReqster">
+          <p-columnFilter
+            type="text"
+            field="requester"
+            placeholder="Search "
+            ariaLabel="Filter Name"
+          />
+        </th>
+        <th id="ftrlessonType">
+          <p-columnFilter
+            type="text"
+            field="lessonType"
+            placeholder="Search "
+            ariaLabel="Filter Name"
+          />
+        </th>
+
+        <th id="ftrcreatedOn">
+          <p-columnFilter
+            type="text"
+            field="createdOn"
+            placeholder="Search"
+            ariaLabel="Filter Name"
+          />
+        </th>
+        <th id="ftrmodifiedOn">
+          <p-columnFilter
+            type="text"
+            field="modifiedOn"
+            placeholder="Search"
+            ariaLabel="Filter Name"
+          />
+        </th>
+        <th id="ftrstatus">
+          <p-columnFilter
+            type="text"
+            field="status"
+            placeholder="Search"
+            ariaLabel="Filter Name"
+          />
+        </th>
+        <th id="ftractionUser">
+          <p-columnFilter
+            type="text"
+            field="actionUser"
+            placeholder="Search"
+            ariaLabel="Filter Name"
+          />
+        </th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-item let-index="rowIndex">
+      <tr>
+        <td [id]="'refId' + item.id">
+          <p
+            class="cursor-pointer m-0" style="text-decoration: underline; color: #3274A3;"
+            role="button"
+            [routerLink]="['/my-submissions/view-details', item.id]"
+          >
+            {{ item.referenceNo | uppercase }}
+          </p>
+        </td>
+        <td [id]="'requester' + index">
+          {{ item.requester }}
+        </td>
+        <td [id]="'lessonType' + index">
+          {{ item.lessonType }}
+        </td>
+        <td [id]="'createdOn' + index">
+          {{ item.createdOn | date : "dd-MM-yyyy hh:mm a" }}
+        </td>
+        <td [id]="'modifiedOn' + index">
+          {{ item.modifiedOn | date : "dd-MM-yyyy hh:mm a" }}
+        </td>
+        <td [id]="'status' + index">{{ item.status }}</td>
+        <td [id]="'email' + index">
+          <p
+            class="m-0"
+            *ngFor="let email of handleEmailSplit(item.actionUser)"
+          >
+            {{ email }}
+          </p>
+        </td>
+      </tr>
+    </ng-template>
+
+    <ng-template pTemplate="emptymessage">
+      <tr>
+        <td colspan="5">No Record found.</td>
+      </tr>
+    </ng-template>
+  </p-table>
+</p-panel>
